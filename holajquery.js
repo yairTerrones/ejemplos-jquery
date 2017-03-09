@@ -12,4 +12,7 @@ $(function() {
     $nuevo = $('<p>Parrafo <b>nuevo</b></p>')
 
     $('h2').after($nuevo)
+    /*$('#boton1').click(function (e) { 
+        e.preventDefault();
+    });*/
 })

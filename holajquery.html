@@ -10,14 +10,49 @@
   
     <h1>Hola jQuery</h1>
     <p class="parrafo"> Parrafo 1</p>
+    <button class="boton">Boton 1</button>
 
     <h2>Encabezado 2</h2>
+    <button class="boton">Boton 2</button>
     <p class="parrafo"> Parrafo 2</p>
 
     <h2>Encabezado 3</h2>
+    <button>Boton 3</button>
     <p id="parrafo3"> Parrafo 3</p>
-    <script>
+    <!-- <script>
         jQuery('*:last').text('Modificado desde jQuery')
+    </script> -->
+    <script>
+
+
+        //$(function() {
+            //$('#boton1').click(function (e) { 
+                //alert('Hola' + $(this).text())
+            //});
+        //})
+
+
+        // $(function() {
+        //     $('.boton').on('click', function () {
+        //         alert('Hola' + $(this).text())
+        //     });
+        // })
+
+
+
+
+        //solo los que tienen  la clas boton.
+        $(function() {
+           $('.boton').on('click','boton', {
+               //Aqui creamos el objeto.
+               propiedad1: 'valor1',
+               propiedad2: 'valor2'
+           },function(e){
+               alert( e.data.propiedad1);
+           })
+        })
+
+
     </script>
 </body>
 </html>
