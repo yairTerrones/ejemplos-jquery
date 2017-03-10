@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.1.1.min.js"></script>
+    <style>
+        canvas {
+            background: cornflowerblue;
+            border: 3px solid black;
+        }
+    </style>
+    <title>Mi Paint.</title>
+</head>
+<body>
+    <canvas width="480" height="320"> </canvas>
+    <script>
+    
+        $(function() {
+            var dibujo = $('canvas')[0]
+            var contexto = dibujo.getContext('2d')
+            var mousePresionado = false
+
+            $('canvas').mousemove(function(e) {
+                var xpos = e.pageX - dibujo.offsetLeft;   //posicion x del mouse sobre la pagina.
+                var ypos = e.pageY - dibujo.offsetTop;
+
+                //si est presionado o no el mouse.
+                if(mousePresionado){
+                    contexto.lineTo(xpos,ypos)
+                }else{
+                    contexto.moveTo(xpos,ypos)
+                }
+                contexto.stroke()//Para mostrarlo como el invalidate en c#
+            })
+
+            $('canvas').mousedown(function() {
+                mousePresionado = true;
+            })
+
+             $('canvas').mouseup(function() {
+                mousePresionado = false;
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>

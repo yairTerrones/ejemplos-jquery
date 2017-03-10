@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+    <button class="boton"> Boton1</button>
+    <button class="boton"> Boton2</button>
+    <button class="boton"> Boton3</button>
+    <p> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod reprehenderit, tempore velit architecto harum voluptatibus. Omnis earum fugit consequatur illum. Provident error mollitia quam iusto accusantium sequi dignissimos, quibusdam corporis.
+    </p>
+        <p> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod reprehenderit, tempore velit architecto harum voluptatibus. Omnis earum fugit consequatur illum. Provident error mollitia quam iusto accusantium sequi dignissimos, quibusdam corporis.
+    </p>
+        <p> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod reprehenderit, tempore velit architecto harum voluptatibus. Omnis earum fugit consequatur illum. Provident error mollitia quam iusto accusantium sequi dignissimos, quibusdam corporis.
+    </p>
+
+    <script>
+        $(function() {
+            //doble click
+            $('.boton').dbclick(function() {
+                $(this).slideUp(); //this si $ es el de java normal.
+            })
+
+            //Un click
+            $('.boton').click(function() {
+                $(this).hide();
+            })
+
+            //cuando el mouse se ponga encima
+            $('p').mouseenter(function () {
+                $(this).css('color','red');
+            })
+
+            //cuando salga
+            $('p').mouseleave(function() {
+                $('p').css('color','black');
+            })
+
+        })
+
+    </script>
+</body>
+</html>
