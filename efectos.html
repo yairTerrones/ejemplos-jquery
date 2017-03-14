@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.1.1.min.js"></script>
+    <style>
+        .caja {
+            background-color: green;
+            width: 640px;
+            height: 480px;
+        }
+
+        .pelota {
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .caja, .pelota {
+            border: black solid 1px;
+        }
+
+    </style>
+    <title>Efectos jQuery.</title>
+</head>
+<body>
+    <h1> Ejemplos de efectos en jQuery</h1>
+    <h2> Ocultar y mostrar</h2>
+    <button id="btn-ocultar">Ocultar</button>
+    <button id="btn-mostrar"> Mostrar</button>
+    <button id="btn-alternar"> Alternar</button>
+    <p id="parrafo1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quasi magni, qui sunt. Magni aliquam ipsum amet blanditiis non deleniti dolor consequatur aliquid consectetur reprehenderit ducimus, culpa corporis voluptas odio.
+    </P>
+
+    <h2> Fundido gradual</h2>
+    <button id="btn-desaparecer">fadeOut</button>
+    <button id="btn-aparecer"> fadeIn</button>
+    <button id="btn-alternar-fundido"> faceToggle</button>
+    <button id="btn-alternar-hasta"> faceTo</button>
+    <p id="parrafo2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quasi magni, qui sunt. Magni aliquam ipsum amet blanditiis non deleniti dolor consequatur aliquid consectetur reprehenderit ducimus, culpa corporis voluptas odio.
+    </P>
+
+    <h2>Deslizamiento</h2>
+    <button id="btn-deslizar-arriba">slideUp</button>
+    <button id="btn-deslizar-abajo"> slideDown</button>
+    <button id="btn-deslizar-alternar"> slideToggle</button>
+    <p id="parrafo3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quasi magni, qui sunt. Magni aliquam ipsum amet blanditiis non deleniti dolor consequatur aliquid consectetur reprehenderit ducimus, culpa corporis voluptas odio.
+    </P>
+
+    <h2>Animacion</h2>
+    <div class="caja">
+        <div class="pelota">
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+//--------------Ocultar y mostrar---------------------
+            $('#btn-ocultar').click(function(){
+                $('#parrafo1').hide('slow');//1000
+            })
+
+            $('#btn-mostrar').click(function(){
+                $('#parrafo1').show('fast');
+            })
+
+            $('#btn-alternar').click(function(){
+                $('#parrafo1').toggle('fast',function(){
+                    alert('Listo');
+                });
+            })
+
+//--------------Fundido gradual--------------------
+            $('#btn-desaparecer').click(function(){
+                $('#parrafo2').fadeOut('slow');
+            })
+
+            $('#btn-aparecer').click(function(){
+                $('#parrafo2').fadeIn('slow');
+            })
+
+            $('#btn-alternar-fundido').click(function(){
+                $('#parrafo2').fadeToggle('slow');
+            })
+
+            $('#btn-alternar-hasta').click(function(){
+                $('#parrafo2').fadeTo('slow',0.5);
+            })
+//-------------Deslizamiento------------------------
+            $('#btn-deslizar-arriba').click(function(){
+                $('#parrafo3').slideUp();
+            })
+
+            $('#btn-deslizar-abajo').click(function(){
+                $('#parrafo3').slideDown();
+            })
+
+            $('#btn-deslizar-alternar').click(function(){
+                $('#parrafo3').slideToggle();
+            })
+//----------------------Ejemplo de animacion---------------------------
+            $('.pelota').click(function(){
+                $(this).animate({
+                  /* width: '100px',
+                   height: '100px'*/
+                   left: '600px',
+                   top: '400px'
+                },3000,'swing').animate({left: '0px', top: '0px'},3000,'swing')
+            })
+        })
+    </script>
+</body>
+</html>
